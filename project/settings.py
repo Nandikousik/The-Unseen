@@ -20,7 +20,7 @@ SECRET_KEY = '-@bmo08hms3wauj+#s&dah6=9lu1f8d4@8cj+zcsag1t2^_&+#'
 DEBUG = False
 
 #ALLOWED_HOSTS = ['*', 'localhost']
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app' , 'now.sh']
 
 
 # Application definition
