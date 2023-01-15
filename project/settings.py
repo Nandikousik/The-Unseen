@@ -1,9 +1,13 @@
 
-import os
-import django_heroku
+#import os
+#import django_heroku
+
+from pathlib import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -15,7 +19,8 @@ SECRET_KEY = '-@bmo08hms3wauj+#s&dah6=9lu1f8d4@8cj+zcsag1t2^_&+#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['*', 'localhost']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -64,12 +69,12 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
 
 
 # Password validation
@@ -111,15 +116,21 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-STATICFILES_DIRS  =  [
-    os.path.join(BASE_DIR, 'project/static')
-    ]
+#STATICFILES_DIRS  =  [
+#os.path.join(BASE_DIR, 'project/static')
+#    ]
 
-STATIC_ROOT= os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
+#STATIC_ROOT= os.path.join(BASE_DIR, 'static')
+#STATIC_URL = '/static/'
 
-MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+#MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
+#MEDIA_URL = '/media/'
 
 # Activate Django-Heroku.
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import os
+STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
